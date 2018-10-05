@@ -1,0 +1,75 @@
+<html>
+<head>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<script type="text/javascript" src = "extension.js"></script>
+
+
+</head>
+
+<style>
+
+.bar-step {
+    position:absolute;
+    margin-top:-20px;
+    z-index:1;
+    font-size:12px;
+}
+.popup{
+    display: none;
+}
+
+.label-txt {
+    float: left;
+}
+.gradient{
+    background: red; /* For browsers that do not support gradients */
+    background: linear-gradient(to right, green, red); /* Standard syntax (must be last) */
+}
+.label-line {
+    float: right;
+    background: #000;
+    height:50px;
+    width:1px;
+    margin-left: 5px;
+}
+
+.label-percent {
+    float: right;
+    margin-left: 5px;   
+}
+</style>
+
+<div class="container" id="popup">
+    <div class="row"><br>
+	    <div class="col-xs-12">
+    	    <div class="progress">
+                <div class="bar-step" style="left: 75%">
+                    <div class="label-txt">Nice long text for test</div>
+                    <div class="label-percent">75</div>
+                    <div class="label-line"></div>
+                    
+                </div>
+                <!--
+                <div class="bar-step" style="left: 10%">
+                    <div class="label-txt">Adam Bray Mark</div>
+                    <div class="label-percent">10%</div>
+                    <div class="label-line"></div>
+                </div>
+                
+                <div class="bar-step" style="left: 55%">
+                    <div class="label-txt">Testing 123</div>
+                    <div class="label-percent">55%</div>
+                    <div class="label-line"></div>
+                </div>
+                -->
+  			    <div class="progress-bar gradient" style="width: 100%;"></div>
+		       </div>
+	        </div>
+	    </div>
+    </div>
+</div>
+</html>

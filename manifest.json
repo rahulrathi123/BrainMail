@@ -1,0 +1,37 @@
+{
+    "manifest_version": 2,
+    "name": "BrainMail",
+    "short_name": "BrainMail",
+    "version": "1.7",
+
+
+    "description": "Compare your sales email with 1000's of emails in our database to quickly understand and benchmark its expected performance.",
+
+    "content_scripts": [
+        {
+      "matches": [ "https://mail.google.com/mail/u/0/", "https://mail.google.com/mail/u/1/", "https://mail.google.com/mail/u/2/", "https://mail.google.com/mail/u/3/", "https://mail.google.com/mail/u/4/", "https://mail.google.com/mail/u/5/", "https://mail.google.com/mail/u/6/", "https://mail.google.com/mail/u/7/", "https://mail.google.com/mail/u/8/", "https://mail.google.com/mail/u/9/", "https://mail.google.com/mail/u/10/", "https://mail.google.com/mail/u/11/", "https://mail.google.com/mail/u/12/", "https://mail.google.com/mail/u/13/", "https://mail.google.com/mail/u/14/", "https://mail.google.com/mail/u/15/", "https://mail.google.com/mail/u/16/", "https://mail.google.com/mail/u/17/", "https://mail.google.com/mail/u/18/", "https://mail.google.com/mail/u/19/", "https://mail.google.com/mail/u/20/"],
+            "js": [
+                "src/extensionInjector.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+
+    "web_accessible_resources": [
+        "dist/extension.js",
+        "dist/popup.html"
+    ],
+
+    "permissions": [
+        "https://mail.google.com/"
+    ],
+
+    "browser_action": {
+      "default_icon": "src/icon16.png"
+   },
+
+    "icons": {
+      "16": "src/icon16.png",
+      "48": "src/icon48.png"
+    }
+}
