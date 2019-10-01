@@ -1,75 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<script type="text/javascript" src = "extension.js"></script>
-
-
-</head>
 
 <style>
+.legend { list-style: none; }
+.legend li { float: left; margin-right: 10px; }
+.legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
+/* legend colors for detailed analysis */
+.legend .complex_words { background-color: #FFFFC2; }
+.legend .rude { background-color: #FBBBB9; }
+.legend .long { background-color: #C2DFFF; }
 
-.bar-step {
-    position:absolute;
-    margin-top:-20px;
-    z-index:1;
-    font-size:12px;
-}
-.popup{
-    display: none;
+.newfont {
+  font-size: 16px !important;
+  font-family: 'Roboto' !important;
+  font-weight: 400 !important;
+  }
+  
+.politejoycomplex {
+  background-color: #4CC552 !important;
 }
 
-.label-txt {
+.rudeanger {
+  background-color: #F75D59 !important;
+}
+
+.surprise {
+  background-color: #5CB3FF !important;
+}
+
+.love {
+  background-color: #0020C2 !important;
+}
+
+.fear {
+  background-color: #E0B0FF !important;
+}
+
+.sadness {
+  background-color: #FFDB58 !important;
+}
+
+.one {
+     width: 45%;
     float: left;
 }
-.gradient{
-    background: red; /* For browsers that do not support gradients */
-    background: linear-gradient(to right, green, red); /* Standard syntax (must be last) */
-}
-.label-line {
-    float: right;
-    background: #000;
-    height:50px;
-    width:1px;
-    margin-left: 5px;
+
+.two {
+      width: 45%;
+      float: right;
 }
 
-.label-percent {
-    float: right;
-    margin-left: 5px;   
+mark {
+  background-color: #FBBBB9;
+  color: black; 
 }
+
+@-webkit-keyframes fade-in {
+   from   { opacity: 0; }
+   to { opacity: 1; }
+ }
+@-moz-keyframes fade-in {
+   from   { opacity: 0; }
+   to { opacity: 1; }
+}
+@-ms-keyframes fade-in {
+   from   { opacity: 0; }
+   to { opacity: 1; }
+}
+.element {
+   -webkit-animation: fade-in .3s linear 1;
+   -moz-animation: fade-in .3s linear 1;
+   -ms-animation: fade-in .3s linear 1;
+}
+
 </style>
 
-<div class="container" id="popup">
-    <div class="row"><br>
-	    <div class="col-xs-12">
-    	    <div class="progress">
-                <div class="bar-step" style="left: 75%">
-                    <div class="label-txt">Nice long text for test</div>
-                    <div class="label-percent">75</div>
-                    <div class="label-line"></div>
-                    
-                </div>
-                <!--
-                <div class="bar-step" style="left: 10%">
-                    <div class="label-txt">Adam Bray Mark</div>
-                    <div class="label-percent">10%</div>
-                    <div class="label-line"></div>
-                </div>
-                
-                <div class="bar-step" style="left: 55%">
-                    <div class="label-txt">Testing 123</div>
-                    <div class="label-percent">55%</div>
-                    <div class="label-line"></div>
-                </div>
-                -->
-  			    <div class="progress-bar gradient" style="width: 100%;"></div>
-		       </div>
-	        </div>
-	    </div>
-    </div>
+</head>
+<body>
+
+  <div class = "element" id = "review" style = "float: right; width: 40%; height: 600px; overflow-x: hidden;">
+
+<br>
+<div class="container newfont" style="width: 100%" id = "overall">
+    <h3 id='overall_heading' style = "text-align: center;"><strong>Your Overall Score</strong><span id = "overall_color" style = "color: red"> 0</span> / 100</h3>
 </div>
+
+<br>
+<div id = "subheading">
+
+<div class="container newfont one" id = "complex" >
+    <h5 id='complex_heading' style = "text-align: center;"><strong>Complexity</strong><span id = "complex_color" style = "color: red"> 0</span> / 100</h5>
+
+</div>
+
+<div class="container newfont two" id = "length">
+    <h5 id='word_count_heading' style = "text-align: center"><strong>Length</strong> 0</h5>
+
+</div>
+</div>
+<br>
+<br>
+<br>
+
+<div id = "charts">
+
+<div class = "newfont one">
+
+<h5 id='word_count_heading' style = "text-align: center "><strong>Politeness</strong></h5>
+
+<canvas id = "myChart" height = "75" width = "75"></canvas>
+
+</div>
+
+<div class = "newfont two" id = "tones">
+
+<h5 id='word_count_heading' style = "text-align: center"><strong>Tone</strong></h5>
+
+<canvas id = "myChart2" height = "75" width = "75"></canvas>
+
+</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <h3><strong>Detailed Analysis</strong></h3>
+
+   <ul class="legend" id = "legend_list" style = "padding: 0 !important;">
+
+    <li style = "font-family: 'Roboto'; text-align: 'left'"><span class="rude"></span>Rude</li>
+
+    <li style = "font-family: 'Roboto'; text-align: 'left'"><span class="long"></span>Long</li>
+
+    <li style = "font-family: 'Roboto'; text-align: 'left'"><span class="complex_words"></span>Complex Words</li>
+
+</ul>
+
+<br>
+
+<div class = "container newfont2" id = "text_analysis">
+</div>
+
+<br>
+
+</div>
+
+</body>
 </html>
